@@ -263,3 +263,9 @@ heap.c:78:55: error: self-comparison always evaluates to false [-Werror=tautolog
 cc1: all warnings being treated as errors
 Compilation failed
 1a15ccc
+Thu 11 May 2023 07:02:46 PM UTC: 
+ heap.c | 46 +++++++++++++++++++++++++---------------------
+ 1 file changed, 25 insertions(+), 21 deletions(-)
+ tests:  8|0
+total_score: 70/70
+d81ab19
