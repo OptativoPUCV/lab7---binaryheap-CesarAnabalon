@@ -67,7 +67,7 @@ void heap_pop(Heap* pq)
   while(1)
   {
     int izq = (2*raiz)+1;
-    int der = (2*der)+2;
+    int der = (2*raiz)+2;
     int priority = raiz;
     
     if (izq < pq->size && (pq->heapArray[izq].priority > pq->heapArray[priority].priority))
