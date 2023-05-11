@@ -62,6 +62,35 @@ void heap_pop(Heap* pq)
 
   pq->heapArray[0] = pq->heapArray[pq->size-1] ;
   pq->size--;
+  int raiz = 0;
+
+  while(1)
+  {
+    int izq = (2*raiz)+1;
+    int der = (2*der)+2;
+    int priority = raiz;
+    
+    if (izq < pq->size && pq->heapArray[izq].priority > pq->heapArray[izq].priority)
+    {
+      priority = izq;
+    }
+
+    if (der < pq->size && pq->heapArray[der].priority > pq->heapArray[der].priority) 
+    {
+      priority = der;
+    }
+    if (priority == raiz) 
+    {
+      break;
+    }
+
+    heapElem temp = pq->heapArray[raiz];
+    pq->heapArray[raiz] = pq->heapArray[priority];
+    pq->heapArray[priority] = temp;
+
+    raiz = priority;
+  }
+
   
 }
 

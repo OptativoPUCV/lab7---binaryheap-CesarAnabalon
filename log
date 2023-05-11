@@ -127,3 +127,17 @@ Thu 11 May 2023 06:42:43 PM UTC:
  tests:  7|1
 total_score: 45/70
 d151f08
+Thu 11 May 2023 06:54:51 PM UTC: 
+ heap.c | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:73:55: error: self-comparison always evaluates to false [-Werror=tautological-compare]
+   73 |     if (izq < pq->size && pq->heapArray[izq].priority > pq->heapArray[izq].priority)
+      |                                                       ^
+heap.c:78:55: error: self-comparison always evaluates to false [-Werror=tautological-compare]
+   78 |     if (der < pq->size && pq->heapArray[der].priority > pq->heapArray[der].priority)
+      |                                                       ^
+cc1: all warnings being treated as errors
+Compilation failed
+cd0f5cd
