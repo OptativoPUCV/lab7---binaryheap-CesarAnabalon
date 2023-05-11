@@ -235,3 +235,17 @@ test.c:(.text+0x296): undefined reference to `createHeap'
 collect2: error: ld returned 1 exit status
 Compilation failed
 89fe184
+Thu 11 May 2023 06:57:34 PM UTC: 
+ heap.c | 50 ++++++++++++++++++++++++++++----------------------
+ 1 file changed, 28 insertions(+), 22 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:73:55: error: self-comparison always evaluates to false [-Werror=tautological-compare]
+   73 |     if (izq < pq->size && pq->heapArray[izq].priority > pq->heapArray[izq].priority)
+      |                                                       ^
+heap.c:78:55: error: self-comparison always evaluates to false [-Werror=tautological-compare]
+   78 |     if (der < pq->size && pq->heapArray[der].priority > pq->heapArray[der].priority)
+      |                                                       ^
+cc1: all warnings being treated as errors
+Compilation failed
+e0a6e99

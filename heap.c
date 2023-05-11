@@ -58,40 +58,46 @@ void heap_push(Heap* pq, void* data, int priority)
 
 void heap_pop(Heap* pq)
 {
-if (pq->size == 0) {
-        return; 
+  if(pq->size == 0) return;
+
+  pq->heapArray[0] = pq->heapArray[pq->size-1] ;
+  pq->size--;
+  int raiz = 0;
+
+  while(1)
+  {
+    int izq = (2*raiz)+1;
+    int der = (2*der)+2;
+    int priority = raiz;
+    
+    if (izq < pq->size && pq->heapArray[izq].priority > pq->heapArray[izq].priority)
+    {
+      priority = izq;
     }
-    
-    
-    pq->heapArray[0] = pq->heapArray[pq->size - 1];
-    pq->size--;
-    
-    
-    int currentIndex = 0;
-    while (1) {
-        int leftChildIndex = 2 * currentIndex + 1;
-        int rightChildIndex = 2 * currentIndex + 2;
-        int largestIndex = currentIndex;
-        
-        
-        if (leftChildIndex < pq->size && pq->heapArray[leftChildIndex].priority > pq->heapArray[largestIndex].priority) {
-            largestIndex = leftChildIndex;
-        }
-        
-        
-        if (rightChildIndex < pq->size && pq->heapArray[rightChildIndex].priority > pq->heapArray[largestIndex].priority) {
-            largestIndex = rightChildIndex;
-        }
-        
-        
-        if (largestIndex == currentIndex) {
-            break;
-        }
-        
-        heapElem temp = pq->heapArray[currentIndex];
-        pq->heapArray[currentIndex] = pq->heapArray[largestIndex];
-        pq->heapArray[largestIndex] = temp;
-        
-        currentIndex = largestIndex;
+
+    if (der < pq->size && pq->heapArray[der].priority > pq->heapArray[der].priority) 
+    {
+      priority = der;
     }
+    if (priority == raiz) 
+    {
+      break;
+    }
+
+    heapElem temp = pq->heapArray[raiz];
+    pq->heapArray[raiz] = pq->heapArray[priority];
+    pq->heapArray[priority] = temp;
+
+    raiz = priority;
+  }
+
+  
+}
+
+Heap* createHeap(){
+  Heap* heap = (Heap*)malloc(sizeof(Heap));
+  heap->heapArray = (heapElem*)malloc(3 * sizeof(heapElem));
+  heap->size = 0;
+  heap->capac = 3;
+  return heap;
 }
