@@ -59,41 +59,39 @@ void heap_push(Heap* pq, void* data, int priority)
 void heap_pop(Heap* pq)
 {
 if (pq->size == 0) {
-        return;  // Si el montículo está vacío, no hay nada que eliminar
+        return; 
     }
     
-    // Reemplaza la raíz con el último elemento del montículo
+    
     pq->heapArray[0] = pq->heapArray[pq->size - 1];
     pq->size--;
     
-    // Reajusta el montículo hacia abajo
+    
     int currentIndex = 0;
     while (1) {
         int leftChildIndex = 2 * currentIndex + 1;
         int rightChildIndex = 2 * currentIndex + 2;
         int largestIndex = currentIndex;
         
-        // Compara la prioridad del padre con la del hijo izquierdo
+        
         if (leftChildIndex < pq->size && pq->heapArray[leftChildIndex].priority > pq->heapArray[largestIndex].priority) {
             largestIndex = leftChildIndex;
         }
         
-        // Compara la prioridad del padre con la del hijo derecho
+        
         if (rightChildIndex < pq->size && pq->heapArray[rightChildIndex].priority > pq->heapArray[largestIndex].priority) {
             largestIndex = rightChildIndex;
         }
         
-        // Si el padre tiene mayor prioridad que ambos hijos, termina el reajuste
+        
         if (largestIndex == currentIndex) {
             break;
         }
         
-        // Intercambia el padre con el hijo de mayor prioridad
         heapElem temp = pq->heapArray[currentIndex];
         pq->heapArray[currentIndex] = pq->heapArray[largestIndex];
         pq->heapArray[largestIndex] = temp;
         
-        // Mueve el índice del padre al hijo de mayor prioridad
         currentIndex = largestIndex;
     }
 }
