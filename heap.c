@@ -70,7 +70,7 @@ void heap_pop(Heap* pq)
     int der = (2*der)+2;
     int priority = raiz;
     
-    if (izq < pq->size && pq->heapArray[izq].priority > pq->heapArray[izq].priority)
+    if (izq < pq->size && (pq->heapArray[izq].priority > pq->heapArray[izq].priority))
     {
       priority = izq;
     }
