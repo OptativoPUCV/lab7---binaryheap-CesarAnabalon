@@ -221,3 +221,9 @@ test.c:(.text+0x296): undefined reference to `createHeap'
 collect2: error: ld returned 1 exit status
 Compilation failed
 d635e2f
+Thu 11 May 2023 06:56:37 PM UTC: 
+/nix/store/039g378vc3pc3dvi9dzdlrd0i4q93qwf-binutils-2.39/bin/ld: /tmp/ccQe6GQO.o: in function `test_create':
+test.c:(.text+0x296): undefined reference to `createHeap'
+collect2: error: ld returned 1 exit status
+Compilation failed
+9b81559
