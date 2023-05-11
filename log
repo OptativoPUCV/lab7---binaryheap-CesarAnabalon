@@ -99,3 +99,13 @@ heap.c:43:35: error: incompatible types when assigning to type ‘heapElem’ {a
       |                                   ^~~~~
 Compilation failed
 a0e7fc3
+Thu 11 May 2023 06:27:17 PM UTC: 
+ heap.c | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:37:22: error: expected expression before ‘;’ token
+   37 |     heapElem nuevo = ;
+      |                      ^
+Compilation failed
+c61b1d7
