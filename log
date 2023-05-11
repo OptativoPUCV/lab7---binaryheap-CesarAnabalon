@@ -48,3 +48,17 @@ heap.c:31:6: note: declared here
 cc1: all warnings being treated as errors
 Compilation failed
 48a5fff
+Thu 11 May 2023 05:11:16 PM UTC: 
+ heap.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_top’:
+heap.c:24:26: error: invalid type argument of ‘->’ (have ‘heapElem’ {aka ‘struct nodo’})
+   24 |   return pq->heapArray[0]->data;
+      |                          ^~
+heap.c:25:3: error: control reaches end of non-void function [-Werror=return-type]
+   25 |   }
+      |   ^
+cc1: all warnings being treated as errors
+Compilation failed
+35f6b57
