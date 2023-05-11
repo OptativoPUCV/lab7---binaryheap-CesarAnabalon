@@ -32,7 +32,7 @@ void heap_pop(Heap* pq)
 {
   if(pq->size == 0) return NULL;
 
-  return pq->heapArray[0];
+  return pq->heapArray[0].data;
 }
 
 Heap* createHeap(){
