@@ -34,7 +34,7 @@ void heap_push(Heap* pq, void* data, int priority)
     pq->heapArray = (heapElem *)realloc(pq->heapArray, reajuste*sizeof(heapElem));
     pq->capac = reajuste;
   }
-heapElem newElement;
+  heapElem newElement;
     newElement.data = data;
     newElement.priority = priority;
 
@@ -45,7 +45,8 @@ heapElem newElement;
 
     // Reajusta el montículo hacia arriba
     int parentIndex = (currentIndex - 1) / 2;
-    while (currentIndex > 0 && pq->heapArray[currentIndex].priority > pq->heapArray[parentIndex].priority) {
+    while (currentIndex > 0 && pq->heapArray[currentIndex].priority > pq->heapArray[parentIndex].priority) 
+    {
         // Intercambia el hijo con el padre si la prioridad del hijo es mayor
         heapElem temp = pq->heapArray[currentIndex];
         pq->heapArray[currentIndex] = pq->heapArray[parentIndex];
@@ -57,7 +58,7 @@ heapElem newElement;
     }
 }
   
-}
+
 
 
 void heap_pop(Heap* pq)
