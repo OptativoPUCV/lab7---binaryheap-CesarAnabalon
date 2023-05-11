@@ -213,3 +213,11 @@ heap.c:59:6: error: old-style parameter declarations in prototyped function defi
 test.c:293: error: expected ‘{’ at end of input
 Compilation failed
 718432f
+Thu 11 May 2023 06:56:31 PM UTC: 
+ heap.c | 1 +
+ 1 file changed, 1 insertion(+)
+/nix/store/039g378vc3pc3dvi9dzdlrd0i4q93qwf-binutils-2.39/bin/ld: /tmp/ccYO1RGu.o: in function `test_create':
+test.c:(.text+0x296): undefined reference to `createHeap'
+collect2: error: ld returned 1 exit status
+Compilation failed
+d635e2f
