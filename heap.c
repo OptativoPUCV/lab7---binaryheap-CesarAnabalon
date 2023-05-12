@@ -24,8 +24,6 @@ void* heap_top(Heap* pq)
   return pq->heapArray[0].data;
 }
 
-
-
 void heap_push(Heap* pq, void* data, int priority)
 {
   if(pq->size == pq->capac)
@@ -45,16 +43,15 @@ void heap_push(Heap* pq, void* data, int priority)
     int newPos = (posicion - 1) / 2;
   
     while (posicion > 0 && (pq->heapArray[posicion].priority > pq->heapArray[newPos].priority)) 
-    {
-        heapElem temp = pq->heapArray[posicion];
-        pq->heapArray[posicion] = pq->heapArray[newPos];
-        pq->heapArray[newPos] = temp;
+  {
+      heapElem temp = pq->heapArray[posicion];
+      pq->heapArray[posicion] = pq->heapArray[newPos];
+      pq->heapArray[newPos] = temp;
 
-        posicion = newPos;
-        newPos = (posicion - 1) / 2;
-    }
+      posicion = newPos;
+      newPos = (posicion - 1) / 2;
+  }
 }
-
 
 void heap_pop(Heap* pq)
 {
@@ -68,30 +65,29 @@ void heap_pop(Heap* pq)
   {
     int izq = (2*raiz)+1;
     int der = (2*raiz)+2;
-    int priority = raiz;
+    int current = raiz;
     
-    if (izq < pq->size && (pq->heapArray[izq].priority > pq->heapArray[priority].priority))
+    if (izq < pq->size && (pq->heapArray[izq].priority > pq->heapArray[current].priority))
     {
-      priority = izq;
+      current = izq;
     }
 
-    if (der < pq->size && pq->heapArray[der].priority > pq->heapArray[priority].priority) 
+    if (der < pq->size && pq->heapArray[der].priority > pq->heapArray[current].priority) 
     {
-      priority = der;
+      current = der;
     }
-    if (priority == raiz) 
+    
+    if (current == raiz) 
     {  
       break;
     }
 
     heapElem temp = pq->heapArray[raiz];
-    pq->heapArray[raiz] = pq->heapArray[priority];
-    pq->heapArray[priority] = temp;
+    pq->heapArray[raiz] = pq->heapArray[current];
+    pq->heapArray[current] = temp;
 
-    raiz = priority;
+    raiz = current;
   }
-
-  
 }
 
 Heap* createHeap(){
